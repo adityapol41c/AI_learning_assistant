@@ -1,0 +1,50 @@
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
+// import { children } from 'react';
+
+const MarkdownRenderer = ({content}) => {
+  return (
+    <div className='text-neutral-700'>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}
+        components={{
+            h1: ({ ...props}) => <h1 className='text-xl font-bold mb-2' {...props} />,
+            h2: ({ ...props}) => <h1 className='text-lg font-bold mb-2' {...props} />,
+            h3: ({ ...props}) => <h1 className='text-md font-bold mb-2' {...props} />,
+            h4: ({ ...props}) => <h1 className='text-sm font-bold mb-2' {...props} />,
+            p: ({ ...props}) => <h1 className='mb-2 leading-relaxed' {...props} />,
+            a: ({ ...props}) => <h1 className='text-[]#--d492 hover:underline' {...props} />,
+            ul: ({ ...props}) => <h1 className='list-disc list-inside mb-2 ml-4' {...props} />,
+            ol: ({ ...props}) => <h1 className='list-decimal list-inside mb-2 ml-4' {...props} />,
+            li: ({ ...props}) => <h1 className='mb-1' {...props} />,
+            strong: ({ ...props}) => <h1 className='font-semibold' {...props} />,
+            em: ({ ...props}) => <h1 className='italic' {...props} />,
+            blockquote: ({ ...props}) => <h1 className='border-l-4 border-neutral-300 pl-4 italic text-neutral-600 my-4' {...props} />,
+            code: ({ inline, className, children, ...props}) => {
+                const match = /language-(\w+)/.exec(className || '');
+                return !inline && match ? (
+                    <SyntaxHighlighter 
+                        style={dracula}
+                        language={match[1]}
+                        PreTag='div'
+                        {...props}
+                    >
+                        {String(children).replace(/\n$/, '')}
+                    </SyntaxHighlighter>
+                ) : (
+                    <code className='bg-neutral-100 p-1 rounded font-mono text-sm' {...props}>
+                        {children}
+                    </code>
+                );
+            },
+            pre: ({...props}) => <pre className='bg-neutral-800 text-white p-3 rounded-md overflow-x-auto font-mono text-sm my-4' {...props} />,
+        }}
+        >
+            {content}
+        </ReactMarkdown>
+    </div>
+  )
+}
+
+export default MarkdownRenderer
