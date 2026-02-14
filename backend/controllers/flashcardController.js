@@ -31,10 +31,12 @@ export const getAllFlashcardSets = async (req,res,next)=>{
         .populate('documentId','title')
         .sort({createdAt:-1});
 
+        const validSets = flashcardSets.filter(set => set.documentId !== null);
+
         res.status(200).json({
             success:true,
-            count:flashcardSets.length,
-            data:flashcardSets,
+            count:validSets.length,
+            data:validSets,
         });
     }catch(error){
         next(error);

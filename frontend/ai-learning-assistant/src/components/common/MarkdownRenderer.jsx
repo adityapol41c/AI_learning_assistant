@@ -2,7 +2,6 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import { children } from 'react';
 
 const MarkdownRenderer = ({content}) => {
   return (
@@ -10,17 +9,17 @@ const MarkdownRenderer = ({content}) => {
         <ReactMarkdown remarkPlugins={[remarkGfm]}
         components={{
             h1: ({ ...props}) => <h1 className='text-xl font-bold mb-2' {...props} />,
-            h2: ({ ...props}) => <h1 className='text-lg font-bold mb-2' {...props} />,
-            h3: ({ ...props}) => <h1 className='text-md font-bold mb-2' {...props} />,
-            h4: ({ ...props}) => <h1 className='text-sm font-bold mb-2' {...props} />,
-            p: ({ ...props}) => <h1 className='mb-2 leading-relaxed' {...props} />,
-            a: ({ ...props}) => <h1 className='text-[]#--d492 hover:underline' {...props} />,
-            ul: ({ ...props}) => <h1 className='list-disc list-inside mb-2 ml-4' {...props} />,
-            ol: ({ ...props}) => <h1 className='list-decimal list-inside mb-2 ml-4' {...props} />,
-            li: ({ ...props}) => <h1 className='mb-1' {...props} />,
-            strong: ({ ...props}) => <h1 className='font-semibold' {...props} />,
-            em: ({ ...props}) => <h1 className='italic' {...props} />,
-            blockquote: ({ ...props}) => <h1 className='border-l-4 border-neutral-300 pl-4 italic text-neutral-600 my-4' {...props} />,
+            h2: ({ ...props}) => <h2 className='text-lg font-bold mb-2' {...props} />,
+            h3: ({ ...props}) => <h3 className='text-md font-bold mb-2' {...props} />,
+            h4: ({ ...props}) => <h4 className='text-sm font-bold mb-2' {...props} />,
+            p: ({ ...props}) => <p className='mb-2 leading-relaxed' {...props} />,
+            a: ({ ...props}) => <a className='text-[]#--d492 hover:underline' {...props} />,
+            ul: ({ ...props}) => <ul className='list-disc list-inside mb-2 ml-4' {...props} />,
+            ol: ({ ...props}) => <ol className='list-decimal list-inside mb-2 ml-4' {...props} />,
+            li: ({ ...props}) => <li className='mb-1' {...props} />,
+            strong: ({ ...props}) => <strong className='font-semibold' {...props} />,
+            em: ({ ...props}) => <em className='italic' {...props} />,
+            blockquote: ({ ...props}) => <backquote className='border-l-4 border-neutral-300 pl-4 italic text-neutral-600 my-4' {...props} />,
             code: ({ inline, className, children, ...props}) => {
                 const match = /language-(\w+)/.exec(className || '');
                 return !inline && match ? (
