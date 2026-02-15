@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import LoginPage from './pages/Auth/LoginPage';
 import RegisterPage from './pages/Auth/RegisterPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -7,7 +8,7 @@ import DashboardPage from './pages/Dashboard/DashboardPage';
 import DocumentListPage from './pages/Documents/DocumentListPage';
 import DocumentDetailPage from './pages/Documents/DocumentDetailPage';
 import FlashcardsListPage from './pages/Flashcards/FlashcardsListPage';
-import FlashcardPage from './pages/Flashcards/FlashCardPage';           // FlashcardPage name change to FlashCardPage
+import FlashcardPage from './pages/Flashcards/FlashcardPage';           // FlashcardPage name change to FlashCardPage
 import QuizTakePage from './pages/Quizzes/QuizTakePage';
 import QuizResultPage from './pages/Quizzes/QuizResultPage';
 import ProfilePage from './pages/Profile/ProfilePage';
@@ -53,6 +54,7 @@ const App = () => {
 
         <Route path="*" element={<NotFoundPage/>}></Route>
       </Routes>
+      <SpeedInsights />
     </Router>
   )
 }
