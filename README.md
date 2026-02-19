@@ -6,6 +6,8 @@ Build Status • MERN Stack • LLM Integration • License
 AI Learning Assistant is a full-stack AI-powered web application designed to help users learn concepts, generate explanations, and get intelligent responses in real time. 
 The system integrates Large Language Models (LLMs) with a scalable MERN architecture to provide interactive and personalized learning support.
 
+Project Deployed on Vercel - https://ai-learning-assistant-ebon.vercel.app/login
+
 # 🏗️ System Architecture
 
 The application follows a full-stack architecture:
